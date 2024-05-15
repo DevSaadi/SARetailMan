@@ -45,10 +45,10 @@ app.MapControllerRoute(
     name: "AccessRoute",
     pattern: "{controller=Access}/{action=Login}/{id?}");
 
-app.MapControllerRoute(
-    name: "AreaRoute",
-    pattern: "{area}/{controller}/{action}/{id?}",
-    defaults: new { area = "Student", controller = "Student", action = "Index" });
+//app.MapControllerRoute(
+//    name: "AreaRoute",
+//    pattern: "{area}/{controller}/{action}/{id?}",
+//    defaults: new { area = "Student", controller = "Student", action = "Index" });
 
 //app.MapControllerRoute(
 //    name: "Default",
