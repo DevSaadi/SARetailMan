@@ -14,7 +14,7 @@ $(document).ready(function () {
     tableData = $("#tbData").DataTable({
         responsive: true,
         "ajax": {
-            "url": "/Inventory/GetCategories",
+            "url": "/Categories/GetCategories",
             "type": "GET",
             "datatype": "json"
         },
@@ -91,7 +91,7 @@ $("#btnSave").on("click", function () {
 
     
     if (model.idCategory == 0) {
-        fetch("/Inventory/CreateCategory", {
+        fetch("/Categories/CreateCategory", {
             method: "POST",
             headers: { 'Content-Type': 'application/json;charset=utf-8' },
             body: JSON.stringify(model)
@@ -114,7 +114,7 @@ $("#btnSave").on("click", function () {
         })
     } else {
 
-        fetch("/Inventory/UpdateCategory", {
+        fetch("/Categories/UpdateCategory", {
             method: "PUT",
             headers: { 'Content-Type': 'application/json;charset=utf-8' },
             body: JSON.stringify(model)
@@ -182,7 +182,7 @@ $("#tbData tbody").on("click", ".btn-delete", function () {
 
                 $(".showSweetAlert").LoadingOverlay("show")
 
-                fetch(`/Inventory/DeleteCategory?idCategory=${data.idCategory}`, {
+                fetch(`/Categories/DeleteCategory?idCategory=${data.idCategory}`, {
                     method: "DELETE"
                 }).then(response => {
                     $(".showSweetAlert").LoadingOverlay("hide")

@@ -21,10 +21,6 @@ namespace RepositoryProject.Controllers
             _rolService= rolService;
         }
 
-        //public IActionResult Index()
-        //{
-        //    return View();
-        //}
         
         public IActionResult User()
         {
@@ -81,7 +77,7 @@ namespace RepositoryProject.Controllers
                 gResponse.Message = ex.Message;
             }
 
-            return StatusCode(StatusCodes.Status200OK, gResponse);
+            return Ok(gResponse);
         }
         
 
@@ -116,7 +112,7 @@ namespace RepositoryProject.Controllers
                 gResponse.Message = ex.Message;
             }
 
-            return StatusCode(StatusCodes.Status200OK, gResponse);
+            return Ok(gResponse);
         }
 
         [HttpDelete]
@@ -133,7 +129,7 @@ namespace RepositoryProject.Controllers
                 gResponse.Message = ex.Message;
             }
 
-            return StatusCode(StatusCodes.Status200OK, gResponse);
+            return Ok(gResponse);
         }
 
 
