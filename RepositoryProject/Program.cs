@@ -22,6 +22,8 @@ builder.Services.AddAutoMapper(typeof(AutoMapperProfile));
 builder.Services.AddTransient(typeof(IGenericRepository<>), typeof(GenericRepository<>));
 builder.Services.AddScoped<IRolService, RolService>();
 builder.Services.AddScoped<IUserService, UserService>();
+builder.Services.AddScoped<ICategoryService, CategoryService>();
+
 
 var app = builder.Build();
 
@@ -46,7 +48,7 @@ app.MapControllerRoute(
     pattern: "{controller=Access}/{action=Login}/{id?}");
 
 //app.MapControllerRoute(
-//    name: "AreaRoute",
+//    name: "AccessRoute",
 //    pattern: "{area}/{controller}/{action}/{id?}",
 //    defaults: new { area = "Student", controller = "Student", action = "Index" });
 

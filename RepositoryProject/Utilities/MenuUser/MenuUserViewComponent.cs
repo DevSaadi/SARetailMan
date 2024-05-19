@@ -36,9 +36,9 @@ namespace RepositoryProject.Utilities.MenuUser
 
             User user_found = await _userService.GetById(IdUser);
 
-            photoUser = Convert.ToBase64String(user_found.Photo);
+                photoUser = Convert.ToBase64String(user_found.Photo);
 
-            emailUser = ((ClaimsIdentity)claimuser.Identity).FindFirst("Email").Value;
+                emailUser = ((ClaimsIdentity)claimuser.Identity).FindFirst("Email").Value;
         }
 
         ViewData["userName"] = userName;

@@ -43,19 +43,19 @@ namespace RepositoryProject.AuoMapper
             );
             #endregion
 
-            //#region Category
-            //CreateMap<Category, VMCategory>()
-            //.ForMember(destiny =>
-            //    destiny.IsActive,
-            //    opt => opt.MapFrom(source => source.IsActive == true ? 1 : 0)
-            //);
+            #region Category
+            CreateMap<Category, VMCategory>()
+            .ForMember(destiny =>
+                destiny.IsActive,
+                opt => opt.MapFrom(source => source.IsActive == true ? 1 : 0)
+            );
 
-            //CreateMap<VMCategory, Category>()
-            //.ForMember(destiny =>
-            //    destiny.IsActive,
-            //    opt => opt.MapFrom(source => source.IsActive == 1 ? true : false)
-            //);
-            //#endregion
+            CreateMap<VMCategory, Category>()
+            .ForMember(destiny =>
+                destiny.IsActive,
+                opt => opt.MapFrom(source => source.IsActive == 1 ? true : false)
+            );
+            #endregion
 
             //#region Product
             //CreateMap<Product, VMProduct>()

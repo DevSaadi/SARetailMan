@@ -2,14 +2,14 @@
 
 namespace RepositoryProject.Areas.Student.Data
 {
-    public class Rol
+    public class Category
     {
         [Key]
-        public int IdRol { get; set; }
+        public int IdCategory { get; set; }
         public string? Description { get; set; }
         public bool? IsActive { get; set; }
         public DateTime? RegistrationDate { get; set; }
-        public virtual ICollection<User> Users { get; set; }
+
+        //public virtual ICollection<Product> Products { get; set; }
     }
 }
-

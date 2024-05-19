@@ -14,10 +14,32 @@ namespace RepositoryProject.DBContext
         public DbSet<Students> Students { get; set; }
         public DbSet<User> Users { get; set; }
         public DbSet<Rol> Rols { get; set; }
+        public DbSet<Category> Categories { get; set; }
 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<Category>(entity =>
+            {
+                entity.HasKey(e => e.IdCategory)
+                    .HasName("PK__Category__79D361B6930E16FF");
+
+                entity.ToTable("Category");
+
+                entity.Property(e => e.IdCategory).HasColumnName("idCategory");
+
+                entity.Property(e => e.Description)
+                    .HasMaxLength(50)
+                    .IsUnicode(false)
+                    .HasColumnName("description");
+
+                entity.Property(e => e.IsActive).HasColumnName("isActive");
+
+                entity.Property(e => e.RegistrationDate)
+                    .HasColumnType("datetime")
+                    .HasColumnName("registrationDate")
+                    .HasDefaultValueSql("(getdate())");
+            });
             modelBuilder.Entity<Rol>(entity =>
             {
                 entity.HasKey(e => e.IdRol)
@@ -90,7 +112,7 @@ namespace RepositoryProject.DBContext
 
         private void OnModelCreatingPartial(ModelBuilder modelBuilder)
         {
-            
+
         }
     }
 }
