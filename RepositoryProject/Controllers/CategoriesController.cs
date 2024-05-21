@@ -29,7 +29,7 @@ namespace RepositoryProject.Controllers
         {
             List<Category> categories = await _categoryService.List();
 
-            // Manually map the list of Category objects to a list of VMCategory objects
+            // Manually map the list of Category objects to a list of VMCategory objectsh
             List<VMCategory> vmCategoryList = categories.Select(category => new VMCategory
             {
                 IdCategory = category.IdCategory,
