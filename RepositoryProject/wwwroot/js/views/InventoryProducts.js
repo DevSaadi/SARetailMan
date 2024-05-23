@@ -16,7 +16,7 @@ const BASIC_MODEL = {
 
 $(document).ready(function () {
 
-    fetch("/Inventory/GetCategories")
+    fetch("/Categories/GetCategories")
         .then(response => {
             return response.ok ? response.json() : Promise.reject(response);
         }).then(responseJson => {
@@ -35,7 +35,7 @@ $(document).ready(function () {
     tableData = $("#tbData").DataTable({
         responsive: true,
         "ajax": {
-            "url": "/Inventory/GetProducts",
+            "url": "/Product/GetProducts",
             "type": "GET",
             "datatype": "json"
         },
@@ -74,17 +74,17 @@ $(document).ready(function () {
         ],
         order: [[0, "desc"]],
         dom: "Bfrtip",
-        buttons: [
-            {
-                text: 'Export Excel',
-                extend: 'excelHtml5',
-                title: '',
-                filename: 'Report Products',
-                exportOptions: {
-                    columns: [2, 3, 4, 5, 6]
-                }
-            }, 'pageLength'
-        ]
+        /*buttons: [*/
+            //{
+            //    text: 'Export Excel',
+            //    extend: 'excelHtml5',
+            //    title: '',
+            //    filename: 'Report Products',
+            //    exportOptions: {
+            //        columns: [2, 3, 4, 5, 6]
+            //    }
+            //}, 'pageLength'
+        //]
     });
 })
 
@@ -138,7 +138,7 @@ $("#btnSave").on("click", function () {
 
 
     if (model.idProduct == 0) {
-        fetch("/Inventory/CreateProduct", {
+        fetch("/Product/CreateProduct", {
             method: "POST",
             body: formData
         }).then(response => {
@@ -160,7 +160,7 @@ $("#btnSave").on("click", function () {
         })
     } else {
 
-        fetch("/Inventory/EditProduct", {
+        fetch("/Product/EditProduct", {
             method: "PUT",
             body: formData
         }).then(response => {
@@ -227,7 +227,7 @@ $("#tbData tbody").on("click", ".btn-delete", function () {
 
                 $(".showSweetAlert").LoadingOverlay("show")
 
-                fetch(`/Inventory/DeleteProduct?IdProduct=${data.idProduct}`, {
+                fetch(`/Product/DeleteProduct?IdProduct=${data.idProduct}`, {
                     method: "DELETE"
                 }).then(response => {
                     $(".showSweetAlert").LoadingOverlay("hide")
